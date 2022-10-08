@@ -1,0 +1,26 @@
+{
+  "name": "creditcard",
+  "version": "1.0.0",
+  "description": "",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukaszfronia/creditCard.git"
+  },
+  "author": "Łukasz Fronia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukaszfronia/creditCard/issues"
+  },
+  "homepage": "https://github.com/lukaszfronia/creditCard#readme",
+  "dependencies": {
+    "parcel": "^2.7.0",
+    "sass": "^1.55.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0"
+  }
+}
