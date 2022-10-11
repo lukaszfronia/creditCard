@@ -1,41 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Roboto:wght@400;500;900&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@use "./variables" as *;
+@use "./mixins" as *;
 
-body {
-  font-size: 62.5%;
-  font-family: "Roboto", sans-serif;
-  color: #868e96;
-  background-image: url("/img/henry-chen-x7clQSWhlfE-unsplash.jpg");
+%background-image {
+  background-image: url("/img/nordwood-themes-KcsKWw77Ovw-unsplash.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  max-width: 100%;
-
-  &::before {
-    content: "";
-    background-color: rgba(0, 0, 0, 0.35);
-    position: absolute;
-    height: 100vh;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
 }
 
 .credit-card-box {
   margin: 50rem auto;
-  display: flex;
-  flex-direction: column;
-  max-width: 130rem;
 
+  @include displayFlex(column);
+
+  max-width: 130rem;
   padding: 3.2rem 4.8rem;
-  background-image: url("/img/nordwood-themes-KcsKWw77Ovw-unsplash.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+
+  @extend %background-image;
+
   border-radius: 70px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.177);
 
@@ -43,16 +24,17 @@ body {
 
   /* Top */
   .credit-card-top {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 8rem;
+
+    @include displayFlex(row, space-between);
 
     .debit {
       font-size: 3.5rem;
+      color: $debit-color;
       letter-spacing: 4px;
+
       align-self: flex-end;
       margin-right: 7rem;
-      color: #495057;
     }
 
     .credit-card-logo {
@@ -63,12 +45,11 @@ body {
   /* Center */
   .credit-card-center {
     padding: 0 4.8rem;
-    display: flex;
-    flex-direction: column;
+    @include displayFlex(column);
     gap: 3rem;
 
     .chip-box {
-      display: flex;
+      @include displayFlex();
       gap: 4rem;
     }
     .chip-logo {
@@ -77,40 +58,39 @@ body {
     }
 
     .payment-logo {
+      color: $payment-valid-color;
       height: 11rem;
       width: 11rem;
       align-self: center;
 
       transform: rotate(90deg);
-      color: #343a40;
     }
   }
 
   .credit-card-description {
-    display: flex;
-    flex-direction: column;
+    @include displayFlex(column);
 
     .credit-card-number {
       font-size: 7rem;
-      letter-spacing: 43px;
-      margin-bottom: 5rem;
-      align-self: center;
       font-family: "Dosis";
       font-weight: 500;
+      letter-spacing: 43px;
+
+      margin-bottom: 5rem;
+      align-self: center;
     }
   }
 
   .valid-box {
-    display: flex;
+    @include displayFlex();
     gap: 7rem;
     align-self: center;
     margin-bottom: 1rem;
 
     .valid {
-      font-size: 2rem;
       width: 2rem;
-      color: #343a40;
-
+      font-size: 2rem;
+      color: $payment-valid-color;
       text-transform: uppercase;
       align-self: center;
       font-weight: 900;
@@ -122,14 +102,13 @@ body {
   }
 
   .credit-card-bottom {
-    display: flex;
-    justify-content: space-between;
+    @include displayFlex(row, space-between);
     .credit-card-owner {
       font-size: 4rem;
       text-transform: uppercase;
-      margin-left: 7rem;
-      letter-spacing: 15px;
       font-weight: 500;
+      letter-spacing: 15px;
+      margin-left: 7rem;
     }
 
     .logo-visa {
